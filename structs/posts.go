@@ -8,8 +8,8 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"restapi/configs"
-	"restapi/utils"
+	"github.com/ittrada/restapi/configs"
+	"github.com/ittrada/restapi/utils"
 )
 
 /*

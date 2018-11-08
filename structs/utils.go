@@ -1,4 +1,4 @@
-package utils
+package structs
 
 /*
  * Resp... the typical struct used to send back json responses

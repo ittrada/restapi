@@ -3,7 +3,7 @@ package routers
 import (
 	"fmt"
 	"net/http"
-	"restapi/structs"
+	"github.com/ittrada/restapi/structs"
 )
 
 type Route struct {
