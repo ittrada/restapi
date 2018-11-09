@@ -3,8 +3,7 @@ package structs
 import (
 	"encoding/json"
 	"net/http"
-	"restapi/configs"
-	"restapi/utils"
+	"github.com/ittrada/restapi/configs"
 )
 
 /*
@@ -16,7 +15,7 @@ type Course struct {
 }
 
 func AllCourses(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	var courses []Course

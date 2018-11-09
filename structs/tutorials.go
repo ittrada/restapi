@@ -7,7 +7,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/gorilla/mux"
+	"github.com/ittrada/restapi/routers/mux"
+	"github.com/ittrada/restapi/configs"
 )
 
 /*
@@ -25,7 +26,7 @@ type Tutorial struct {
 }
 
 func AllTutorials(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	var tutorials []Tutorial
@@ -50,7 +51,7 @@ func GetTutorial(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Not a Valid id")
 	}
 	// Open up our database connection.
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	var tutorial Tutorial

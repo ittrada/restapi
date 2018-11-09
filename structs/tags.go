@@ -8,7 +8,8 @@ import (
 	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/gorilla/mux"
+	"github.com/ittrada/restapi/routers/mux"
+	"github.com/ittrada/restapi/configs"
 )
 
 /*
@@ -20,7 +21,7 @@ type Tag struct {
 }
 
 func AllTags(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	var tags []Tag
@@ -40,7 +41,7 @@ func AllTags(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetTag(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	vars := mux.Vars(r)
@@ -62,7 +63,7 @@ func GetTag(w http.ResponseWriter, r *http.Request) {
 }
 
 func InsertTag(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	decoder := json.NewDecoder(r.Body)
@@ -89,7 +90,7 @@ func InsertTag(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteTag(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	vars := mux.Vars(r)
@@ -110,7 +111,7 @@ func DeleteTag(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditTag(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	decoder := json.NewDecoder(r.Body)

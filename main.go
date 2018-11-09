@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 	"net/http"
-	"restapi/routers"
+	"github.com/ittrada/restapi/routers"
 )
 
 func main() {
-	router := NewRouter()
+	router := routers.NewRouter()
 	log.Fatal(http.ListenAndServe(":9000", router))
 }

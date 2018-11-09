@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func connect() *sql.DB {
+func Connect() *sql.DB {
 	db, err := sql.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/goblog")
 
 	if err != nil {

@@ -7,9 +7,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/gorilla/mux"
+	"github.com/ittrada/restapi/routers/mux"
 	"github.com/ittrada/restapi/configs"
-	"github.com/ittrada/restapi/utils"
 )
 
 /*
@@ -26,7 +25,7 @@ type Post struct {
 }
 
 func AllPosts(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	var posts []Post
@@ -45,7 +44,7 @@ func AllPosts(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetPost(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	vars := mux.Vars(r)
@@ -67,7 +66,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func InsertPost(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	decoder := json.NewDecoder(r.Body)
@@ -95,7 +94,7 @@ func InsertPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeletePost(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	vars := mux.Vars(r)
@@ -116,7 +115,7 @@ func DeletePost(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditPost(w http.ResponseWriter, r *http.Request) {
-	db := connect()
+	db := configs.Connect()
 	defer db.Close()
 
 	decoder := json.NewDecoder(r.Body)
