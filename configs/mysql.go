@@ -3,6 +3,7 @@ package configs
 import (
 	"database/sql"
 	"log"
+	_"github.com/ittrada/restapi/configs/mysql"
 )
 
 func Connect() *sql.DB {

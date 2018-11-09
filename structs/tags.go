@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	_ "github.com/go-sql-driver/mysql"
+
 	"github.com/ittrada/restapi/routers/mux"
 	"github.com/ittrada/restapi/configs"
 )
